@@ -29,9 +29,11 @@ export const search = async (page = 1, limit = 50, category = '', start_date = n
   const categories = category?.length ? category.split(',') : [];
   const startDate = /^([0-9]{1,2})\/([0-9]{1,2})\/([0-9]{4})$/gi.test(start_date) ? start_date : null;
   const startDateObj = new Date(startDate);
-  const query = {
-    category: categories,
-  };
+  const query = {};
+
+  if (categories.length) {
+    query.category = categories;
+  }
 
   if (startDate && startDateObj) {
     query.start_date = {
