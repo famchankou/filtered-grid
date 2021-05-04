@@ -29,7 +29,7 @@ const generateItems = count => {
       id: uuidv4(),
       name: generateStr(16),
       description: generateStr(255),
-      start_date: randomDate(new Date(2019, 0, 1), new Date(2022, 0, 1)),
+      start_date: randomDate(new Date(2021, 0, 1), new Date(2022, 0, 1)),
       category: CATEGORIES[generateRandomInt(0, CATEGORIES.length - 1)],
       updatedAt: new Date(),
       createdAt: new Date(),
