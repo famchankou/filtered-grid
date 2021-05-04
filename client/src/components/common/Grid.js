@@ -21,7 +21,7 @@ const Grid = ({ items }) => {
         </GridHeaderRowStyled>
       </GridHeaderStyled>
       <GridBodyStyled>
-      {!items.length && <span><strong>No Items found</strong></span>}
+      {!items.length && <tr><td>No Items found</td></tr>}
       {items.map(item => {
         return (<GridRowStyled key={item.id}>
           <GridCellStyled>{item.num}</GridCellStyled>
