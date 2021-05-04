@@ -6,7 +6,7 @@ Backend:
   - Nodemon
 
 ### Installation
-Install the dependencies and start the server:
+Install the dependencies and start the server (Node 12.x was used):
 Create the DB 'workouts' before starting the server.
 Add .env file with specified params:
 
