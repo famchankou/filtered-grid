@@ -14,7 +14,7 @@ import {
   Grid,
 } from '../common';
 
-const GridPage = ({ workouts, fetchItems, filters, setCategoriesFilter, setDateFilter }) => {
+const GridPage = ({ workouts, fetchItems, filters, setCategoriesFilter, setDateFilter, flushFilters }) => {
   const { categories, date } = filters;
   const { items, count, isLoading } = workouts;
   const categoryOptions = CATEGORY_OPTIONS;
@@ -54,6 +54,9 @@ const GridPage = ({ workouts, fetchItems, filters, setCategoriesFilter, setDateF
             selectedOption={date}
             onSelect={setDateFilter}
           />
+        </FilterContainer>
+        <FilterContainer caption={'Reset Filters'} htmlFor={'filters-reset'}>
+          <button id='filters-reset' onClick={flushFilters}>Reset</button>
         </FilterContainer>
       </FiltersContainerStyled>
       <GridContainerStyled>
