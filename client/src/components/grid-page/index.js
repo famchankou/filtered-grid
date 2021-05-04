@@ -5,6 +5,7 @@ import {
   GridPageStyled,
   FiltersContainerStyled,
   GridContainerStyled,
+  FilterButtonStyled,
 } from './GridPage.styled';
 import {
   FilterDateSelect,
@@ -56,7 +57,7 @@ const GridPage = ({ workouts, fetchItems, filters, setCategoriesFilter, setDateF
           />
         </FilterContainer>
         <FilterContainer caption={'Reset Filters'} htmlFor={'filters-reset'}>
-          <button id='filters-reset' onClick={flushFilters}>Reset</button>
+          <FilterButtonStyled id='filters-reset' onClick={flushFilters}>Reset</FilterButtonStyled>
         </FilterContainer>
       </FiltersContainerStyled>
       <GridContainerStyled>

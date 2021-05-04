@@ -30,6 +30,14 @@ export const FiltersContainerStyled = styled.div`
   }
 `;
 
+export const FilterButtonStyled = styled.button`
+  height: 2rem;
+  color: #023e5a;
+  border: none;
+  background-color: #fbe9e9;
+  cursor: pointer;
+`;
+
 export const GridContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
