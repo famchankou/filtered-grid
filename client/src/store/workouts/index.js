@@ -6,32 +6,32 @@ export const getWorkoutItems = ({ page, limit, categories, startDate }) => {
   const url = `${BASE_URL}/workouts/search/params?limit=${limit}&page=${page}&category=${categories}&start_date=${startDate}`;
 
   return async dispatch => {
-    dispatch(workoutsRequest());
+    dispatch(workoutsRequestAction());
     
     try {
       const result = await executeFetch(url);
-      dispatch(workoutsSuccess({
+      dispatch(workoutsSuccessAction({
         items: enumerate(result?.data?.rows, page, limit),
         count: result?.data?.count,
       }));
     } catch (error) {
-      dispatch(workoutsFailure(error, 'grid'));
+      dispatch(workoutsFailureAction(error, 'grid'));
     }
   };
 };
 
-const workoutsRequest = () => ({
+const workoutsRequestAction = () => ({
   type: WORKOUTS_REQUEST,
 });
 
-const workoutsSuccess = data => ({
+const workoutsSuccessAction = data => ({
   type: WORKOUTS_SUCCESS,
   payload: {
     ...data,
   },
 });
 
-const workoutsFailure = (error, page) => ({
+const workoutsFailureAction = (error, page) => ({
   type: WORKOUTS_ERROR,
   payload: {
     error: error.message,

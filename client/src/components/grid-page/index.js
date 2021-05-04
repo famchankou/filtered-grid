@@ -14,28 +14,27 @@ import {
   Grid,
 } from '../common';
 
-const GridPage = ({ workouts, fetchItems }) => {
+const GridPage = ({ workouts, fetchItems, filters, setCategoriesFilter, setDateFilter }) => {
+  const { categories, date } = filters;
   const { items, count, isLoading } = workouts;
   const categoryOptions = CATEGORY_OPTIONS;
   const startDateOptions = START_DATE_OPTIONS;
 
   const [limit] = useState(20);
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [selectedStartDate, setSelectedStartDate] = useState('default');
   const [page, setPage] = useState(0);
 
   useEffect(() => {
     fetchItems({
       page,
       limit,
-      categories: getCategoriesString(selectedCategories, categoryOptions),
-      startDate: getStartDate(parseInt(selectedStartDate)),
+      categories: getCategoriesString(categories, categoryOptions),
+      startDate: getStartDate(parseInt(date)),
     });
-  }, [fetchItems, selectedStartDate, selectedCategories, categoryOptions, page, limit])
+  }, [fetchItems, date, categories, categoryOptions, page, limit])
 
   useEffect(() => {
     setPage(1);
-  }, [selectedStartDate, selectedCategories])
+  }, [date, categories])
 
   return (
     <GridPageStyled>
@@ -44,16 +43,16 @@ const GridPage = ({ workouts, fetchItems }) => {
           <FilterCategory
             id={'filter-category'}
             options={categoryOptions}
-            selectedOptions={selectedCategories}
-            onSelect={setSelectedCategories}
+            selectedOptions={categories}
+            onSelect={setCategoriesFilter}
           />
         </FilterContainer>
         <FilterContainer caption={'Start Date'} htmlFor={'filter-startdate'}>
           <FilterDateSelect
             id={'filter-startdate'}
             options={startDateOptions}
-            selectedOption={selectedStartDate}
-            onSelect={setSelectedStartDate}
+            selectedOption={date}
+            onSelect={setDateFilter}
           />
         </FilterContainer>
       </FiltersContainerStyled>

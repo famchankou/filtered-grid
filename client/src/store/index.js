@@ -12,6 +12,10 @@ const initialState = () => {
       count: 0,
       isLoading: false,
       error: null,
+    },
+    filters: {
+      categories: [],
+      date: 'default',
     }
   };
 };

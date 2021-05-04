@@ -7,7 +7,7 @@ const initialState = {
   error: null,
 };
 
-const loginReducer = (state = initialState, action) => {
+const workoutsReducer = (state = initialState, action) => {
   switch (action.type) {
     case WORKOUTS_REQUEST:
       return {
@@ -32,4 +32,4 @@ const loginReducer = (state = initialState, action) => {
   }
 };
 
-export default loginReducer;
+export default workoutsReducer;
